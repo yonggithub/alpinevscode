@@ -10,7 +10,8 @@ RUN apk add --update --no-cache \
     redis \
     # https://stackoverflow.com/questions/50288034/unsatisfiedlinkerror-tmp-snappy-1-1-4-libsnappyjava-so-error-loading-shared-li
     libc6-compat \
-    && ln -s /lib/libc.musl-x86_64.so.1 /lib/ld-linux-x86-64.so.2
+    && ln -s /lib/libc.musl-x86_64.so.1 /lib/ld-linux-x86-64.so.2 \
+    && echo "root:111111"|chpasswd
 
 ENV CODE_SERVER_VERSION "3.2.0"
 RUN mkdir /usr/lib/code-server \
